@@ -9,17 +9,61 @@
 import UIKit
 
 class ViewController: UIViewController {
-                            
+    @IBOutlet weak var connectionButton: UIButton!
+ 
+    @IBOutlet weak var testbutton: UIButton!
+    var prenom:NSString = ""
+    
+    override func viewDidAppear(animated: Bool) {
+        let rawData = NSUserDefaults.standardUserDefaults().objectForKey("userInfos")
+        if(rawData != nil){
+        let test = rawData as NSString
+        println("Local stroage user infos")
+        println(test)
+        println("------------------------")
+        if(test !=  ""){
+            println("------------------------")
+            println("Already connected")
+            println("------------------------")
+            self.performSegueWithIdentifier("connectedSegue", sender:self)
+            
+        }
+        }else{
+            println("------------------------")
+            println("Not connected")
+            println("------------------------")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+       let del = UIApplication.sharedApplication().delegate as AppDelegate
+        println("current prenom")
+        println(del.surname)
+        var birdTexture1 = UIImage(named: "connect.png") as UIImage
+        connectionButton.setBackgroundImage(birdTexture1, forState: .Normal)
         // Do any additional setup after loading the view, typically from a nib.
+        goToFirstView()
+        configureTestButton()
+        
+    }
+    
+   func configureTestButton(){
+    self.performSegueWithIdentifier("connectedSegue", sender:self)
+    testbutton.addTarget(self, action: "goToFunction", forControlEvents: .TouchUpInside)
+
+    }
+    
+    func goToFunction(){
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    func goToFirstView(){
+    }
 
 }
 

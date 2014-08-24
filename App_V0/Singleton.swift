@@ -7,3 +7,18 @@
 //
 
 import Foundation
+
+class SingletonB {
+    
+    class var sharedInstance : SingletonB {
+  
+        func setprenom(pre : NSString){
+            self.prenom = pre
+        }
+    struct Static {
+        static let instance : SingletonB = SingletonB()
+        }
+        return Static.instance
+    }
+    
+}

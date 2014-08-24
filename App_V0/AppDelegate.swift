@@ -12,6 +12,15 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
                             
     var window: UIWindow?
+    var surname: NSString = ""
+    var name: NSString = ""
+    
+    struct newConquest {
+        var sex = ""
+        var ranking = 0
+        var place = ""
+        var physicalCaracteristics:NSArray
+    }
 
 
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
