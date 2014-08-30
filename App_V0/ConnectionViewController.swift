@@ -65,9 +65,24 @@ class ConnectionViewController: UIViewController {
                 println(error.localizedDescription)
             }
             var err: NSError?
-            println(data)
-            if(data == nil || data=="" || data=="{}"){
+            let dataParsed = NSData(bytes: data.bytes, length: Int(data.length))
+        
+            let str:String = NSString(data: dataParsed, encoding: NSUTF8StringEncoding)
+            
+            println(str.rangeOfString("Cannot GET /users/") != nil)
+        
+            
+            // TO change when the right value is sent back bby the node if no user found !
+            if(data == nil || data=="" || data=="{}" || str.rangeOfString("Cannot GET /users/") != nil){
+                dispatch_async(dispatch_get_main_queue(), {
                 println("error")
+                self.connectionSpinner.stopAnimating()
+                let alert = UIAlertView()
+                alert.title = "Error"
+                alert.message = "ID not found ! "
+                alert.addButtonWithTitle("Ok")
+                alert.show()
+                })
                 
             }else{
               
@@ -82,10 +97,11 @@ class ConnectionViewController: UIViewController {
                 println(jsonResult);
                 dispatch_async(dispatch_get_main_queue(), {
                     self.labelResponse.text = userSurname
-                    let del = UIApplication.sharedApplication().delegate as AppDelegate
-                    del.surname = userSurname
-                    del.name = userName
-                    
+                    let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+                    appDelegate.surname = userSurname
+                    appDelegate.name = userName
+                    appDelegate.userData = jsonResult
+                    println(jsonResult["history"])
                     self.connectionSpinner.stopAnimating()
 
                     //If using storyboard, assuming you have a view controller with storyboard ID "MyCustomViewController"
@@ -93,8 +109,9 @@ class ConnectionViewController: UIViewController {
                     self.presentViewController(secondViewController, animated: true, completion: nil)
                     
                     let dataString = NSString(data: data, encoding: NSUTF8StringEncoding)
-                    NSUserDefaults.standardUserDefaults().setObject(dataString, forKey: "userInfos")
-                    let test = NSUserDefaults.standardUserDefaults().objectForKey("userInfos")
+                    NSUserDefaults.standardUserDefaults().setObject(jsonResult, forKey: "userInfos")
+                    let test: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("userInfos")
+                    println("Data put to the session part:")
                     println(test)
                     NSUserDefaults.standardUserDefaults().synchronize()
                     

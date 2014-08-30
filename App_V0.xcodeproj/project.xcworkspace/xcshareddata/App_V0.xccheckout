@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>0AEF13D2-37A4-44FA-BA80-B28B725E35F8</string>
+	<key>IDESourceControlProjectName</key>
+	<string>App_V0</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>DC3C5E09AC5FC8B2012B269EB8E00BCC43802767</key>
+		<string>https://github.com/hdimator/goodStart.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>App_V0.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>DC3C5E09AC5FC8B2012B269EB8E00BCC43802767</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/hdimator/goodStart.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DC3C5E09AC5FC8B2012B269EB8E00BCC43802767</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DC3C5E09AC5FC8B2012B269EB8E00BCC43802767</string>
+			<key>IDESourceControlWCCName</key>
+			<string>App_V0</string>
+		</dict>
+	</array>
+</dict>
+</plist>

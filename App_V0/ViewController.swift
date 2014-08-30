@@ -11,13 +11,16 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var connectionButton: UIButton!
  
-    @IBOutlet weak var testbutton: UIButton!
-    var prenom:NSString = ""
+     var prenom:NSString = ""
     
     override func viewDidAppear(animated: Bool) {
-        let rawData = NSUserDefaults.standardUserDefaults().objectForKey("userInfos")
+        
+        let rawData: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("userInfos")
+        println("Data got from the session part:")
+        println(rawData)
+        
         if(rawData != nil){
-        let test = rawData as NSString
+        let test = rawData as NSDictionary
         println("Local stroage user infos")
         println(test)
         println("------------------------")
@@ -25,6 +28,8 @@ class ViewController: UIViewController {
             println("------------------------")
             println("Already connected")
             println("------------------------")
+            let del = UIApplication.sharedApplication().delegate as AppDelegate
+            del.userData = rawData as? NSDictionary
             self.performSegueWithIdentifier("connectedSegue", sender:self)
             
         }
@@ -44,15 +49,9 @@ class ViewController: UIViewController {
         connectionButton.setBackgroundImage(birdTexture1, forState: .Normal)
         // Do any additional setup after loading the view, typically from a nib.
         goToFirstView()
-        configureTestButton()
         
     }
     
-   func configureTestButton(){
-    self.performSegueWithIdentifier("connectedSegue", sender:self)
-    testbutton.addTarget(self, action: "goToFunction", forControlEvents: .TouchUpInside)
-
-    }
     
     func goToFunction(){
         

@@ -16,6 +16,9 @@ class newConquestViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+
+        
 //        var manImg = UIImage(named: "manLogo.png") as UIImage
 //        manSexButton.setBackgroundImage(manImg, forState: .Normal)
 //        manSexButton.setTitle("", forState: .Normal)
@@ -29,7 +32,21 @@ class newConquestViewController: UIViewController {
 //        unknownSexButton.setTitle("", forState: .Normal)
      
     }
-    
+    @IBAction func setMan(sender: AnyObject) {
+        println("set sex")
+    }
+
+    @IBAction func setWoman(sender: AnyObject) {
+         println("set sex")
+    }
+//    
+//    @IBAction func setSexWoman(sender: UIButton) {
+//        println("set sex")
+//    }
+//    
+//    @IBAction func setSexUnknown(sender: UIButton) {
+//                println("set sex")
+//    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

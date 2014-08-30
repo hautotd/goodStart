@@ -15,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var surname: NSString = ""
     var name: NSString = ""
     
+    var userData: NSDictionary?
+    
     struct newConquest {
         var sex = ""
         var ranking = 0
