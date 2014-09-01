@@ -38,7 +38,8 @@ class ConnectedViewController: UIViewController, UITableViewDelegate, UITableVie
             dateStringFormatter.dateFormat = "yyyy/MM/dd"
             let d = dateStringFormatter.stringFromDate(dd)
             println(d)
-            var textToDisplay = d + " " + ranking + "/10 " + comment
+           var textToDisplay: NSString = d + " " + ranking + "/10 " + comment
+           //var textToDisplay = "coucou"
             self.tableData.append(textToDisplay)
         }
        
@@ -62,7 +63,10 @@ class ConnectedViewController: UIViewController, UITableViewDelegate, UITableVie
     {
         let cell:UITableViewCell = UITableViewCell(style:UITableViewCellStyle.Default, reuseIdentifier:"cell")
         cell.textLabel.text = tableData[indexPath.row]
-        
+        cell.textLabel.textColor = UIColor.whiteColor()
+        cell.backgroundColor = UIColor.clearColor()
+        cell.textLabel.numberOfLines = 2;
+        //cell.textLabel.lineBreakMode = NSLineBreakMode;
         return cell
     }
     
@@ -74,6 +78,7 @@ class ConnectedViewController: UIViewController, UITableViewDelegate, UITableVie
     func disconnect(){
         NSUserDefaults.standardUserDefaults().removeObjectForKey("userInfos")
         NSUserDefaults.standardUserDefaults().synchronize()
+        performSegueWithIdentifier("goToLogin", sender: self)
     }
     
     override func didReceiveMemoryWarning() {

@@ -62,24 +62,32 @@ class ConnectionViewController: UIViewController {
             println("Task completed")
             if(error != nil) {
                 // If there is an error in the web request, print it to the console
+                dispatch_async(dispatch_get_main_queue(), {
+
+                self.connectionSpinner.stopAnimating()
+                let alertNetwork = UIAlertView()
+                alertNetwork.title = "Error"
+                alertNetwork.message = "No network or server down. "
+                alertNetwork.addButtonWithTitle("Ok")
+                alertNetwork.show()
+                    })
                 println(error.localizedDescription)
+                return
             }
             var err: NSError?
             let dataParsed = NSData(bytes: data.bytes, length: Int(data.length))
         
             let str:String = NSString(data: dataParsed, encoding: NSUTF8StringEncoding)
             
-            println(str.rangeOfString("Cannot GET /users/") != nil)
-        
             
             // TO change when the right value is sent back bby the node if no user found !
-            if(data == nil || data=="" || data=="{}" || str.rangeOfString("Cannot GET /users/") != nil){
+            if(str=="{}"){
                 dispatch_async(dispatch_get_main_queue(), {
                 println("error")
                 self.connectionSpinner.stopAnimating()
                 let alert = UIAlertView()
                 alert.title = "Error"
-                alert.message = "ID not found ! "
+                alert.message = "ID not found Please sign in! "
                 alert.addButtonWithTitle("Ok")
                 alert.show()
                 })
@@ -109,10 +117,11 @@ class ConnectionViewController: UIViewController {
                     self.presentViewController(secondViewController, animated: true, completion: nil)
                     
                     let dataString = NSString(data: data, encoding: NSUTF8StringEncoding)
+                                        println("Data put to the session part:")
                     NSUserDefaults.standardUserDefaults().setObject(jsonResult, forKey: "userInfos")
-                    let test: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("userInfos")
-                    println("Data put to the session part:")
-                    println(test)
+                    //let test: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("userInfos")
+
+                   // println(test)
                     NSUserDefaults.standardUserDefaults().synchronize()
                     
                 })
@@ -123,9 +132,98 @@ class ConnectionViewController: UIViewController {
         })
         
         task.resume()
-        
     }
  
+    @IBAction func createUser(sender: AnyObject) {
+        println("Creation user")
+        var request = NSMutableURLRequest(URL: NSURL(string: "http://54.77.86.119:8080/users"))
+        var session = NSURLSession()
+        request.HTTPMethod = "POST"
+        
+        var history = ["date" : 1409266166, "ranking":"9", "comment":"nouvellement cree", "where":"boat", "job":"nurse", "nationality": "french", "height":"tall", "weight":"fat","age":"20" ]
+        
+        var params = ["name":self.loginInput.text,"history": history,"surname":"utilisateursurname"] as Dictionary<String,NSObject>
+        
+                var err: NSError?
+                request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
+        
+        
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler: { (response:NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+           
+            println("Response: \(response)")
+
+            
+            var strData = NSString(data: data, encoding: NSUTF8StringEncoding)
+            
+            var err: NSError?
+            
+            println("strData: \(strData)")
+            dispatch_async(dispatch_get_main_queue(), {
+            if(strData == "updated"){
+                let alert = UIAlertView()
+                alert.title = "Nouvel utilisateur"
+                alert.message = "Utilisateur - \(self.loginInput.text) - créé ! "
+                alert.addButtonWithTitle("Ok")
+                alert.show()
+            }
+            else{
+                let alert = UIAlertView()
+                alert.title = "Problème"
+                alert.message = "Oups ! erreur de création "
+                alert.addButtonWithTitle("Ok")
+                alert.show()
+            }
+            })
+            
+        })
+        
+//        var connection = NSURLConnection(request: request, delegate: self)
+//        
+//        println("sending request")
+//        
+//        connection.start()
+        
+        
+        
+//        
+//        
+//        var err: NSError?
+//        request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
+//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//        request.addValue("application/json", forHTTPHeaderField: "Accept")
+//        var task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+//            println("Response: \(response)")
+//            var strData = NSString(data: data, encoding: NSUTF8StringEncoding)
+//            println("Body: \(strData)")
+//            var err: NSError?
+//            var json = NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves, error: &err) as? NSDictionary
+//            
+//            // Did the JSONObjectWithData constructor return an error? If so, log the error to the console
+//            if(err != nil) {
+//                println(err!.localizedDescription)
+//                let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
+//                println("Error could not parse JSON: '\(jsonStr)'")
+//            }
+//            else {
+//                // The JSONObjectWithData constructor didn't return an error. But, we should still
+//                // check and make sure that json has a value using optional binding.
+//                if let parseJSON = json {
+//                    // Okay, the parsedJSON is here, let's get the value for 'success' out of it
+//                    var success = parseJSON["success"] as? Int
+//                    println("Succes: \(success)")
+//                }
+//                else {
+//                    // Woa, okay the json object was nil, something went worng. Maybe the server isn't running?
+//                    let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
+//                    println("Error could not parse JSON: \(jsonStr)")
+//                }
+//            }
+//        })
+        
+       // task.resume()
+        
+        
+    }
     func goToMainView(){
         self.performSegueWithIdentifier("goToMainView", sender:self)
     }

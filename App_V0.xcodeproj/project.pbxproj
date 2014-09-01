@@ -22,6 +22,24 @@
 		4181637E19AA406E00287289 /* newConquestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4181637D19AA406E00287289 /* newConquestViewController.swift */; };
 		4181638019AA59FB00287289 /* send.png in Resources */ = {isa = PBXBuildFile; fileRef = 4181637F19AA59FB00287289 /* send.png */; };
 		4181638219AA6A8C00287289 /* RankingConquestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4181638119AA6A8C00287289 /* RankingConquestViewController.swift */; };
+		7B08CC5B19B1FD6B00EAE1B9 /* AppearanceConquestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B08CC5A19B1FD6B00EAE1B9 /* AppearanceConquestViewController.swift */; };
+		7B723A8B19B219B00046FB56 /* WhereConquestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B723A8A19B219B00046FB56 /* WhereConquestViewController.swift */; };
+		7B723AC519B22C240046FB56 /* airport.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B723AB719B22C240046FB56 /* airport.png */; };
+		7B723AC619B22C240046FB56 /* beach.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B723AB819B22C240046FB56 /* beach.png */; };
+		7B723AC719B22C240046FB56 /* bedroom.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B723AB919B22C240046FB56 /* bedroom.png */; };
+		7B723AC819B22C240046FB56 /* car.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B723ABA19B22C240046FB56 /* car.png */; };
+		7B723AC919B22C240046FB56 /* church.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B723ABB19B22C240046FB56 /* church.png */; };
+		7B723ACA19B22C240046FB56 /* club.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B723ABC19B22C240046FB56 /* club.png */; };
+		7B723ACB19B22C240046FB56 /* hotel.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B723ABD19B22C240046FB56 /* hotel.png */; };
+		7B723ACC19B22C240046FB56 /* jacuzzi.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B723ABE19B22C240046FB56 /* jacuzzi.png */; };
+		7B723ACD19B22C240046FB56 /* kitchen.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B723ABF19B22C240046FB56 /* kitchen.png */; };
+		7B723ACE19B22C240046FB56 /* parking.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B723AC019B22C240046FB56 /* parking.png */; };
+		7B723ACF19B22C240046FB56 /* street.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B723AC119B22C240046FB56 /* street.png */; };
+		7B723AD019B22C240046FB56 /* theatre.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B723AC219B22C240046FB56 /* theatre.png */; };
+		7B723AD119B22C240046FB56 /* titles.psd in Resources */ = {isa = PBXBuildFile; fileRef = 7B723AC319B22C240046FB56 /* titles.psd */; };
+		7B723AD219B22C240046FB56 /* toilets.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B723AC419B22C240046FB56 /* toilets.png */; };
+		7B723AD419B2360D0046FB56 /* SendConquestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B723AD319B2360D0046FB56 /* SendConquestViewController.swift */; };
+		7B7527A319B389840096E7ED /* logo1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B7527A219B389840096E7ED /* logo1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +72,24 @@
 		4181637D19AA406E00287289 /* newConquestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newConquestViewController.swift; sourceTree = "<group>"; };
 		4181637F19AA59FB00287289 /* send.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = send.png; sourceTree = "<group>"; };
 		4181638119AA6A8C00287289 /* RankingConquestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingConquestViewController.swift; sourceTree = "<group>"; };
+		7B08CC5A19B1FD6B00EAE1B9 /* AppearanceConquestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceConquestViewController.swift; sourceTree = "<group>"; };
+		7B723A8A19B219B00046FB56 /* WhereConquestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhereConquestViewController.swift; sourceTree = "<group>"; };
+		7B723AB719B22C240046FB56 /* airport.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = airport.png; sourceTree = "<group>"; };
+		7B723AB819B22C240046FB56 /* beach.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beach.png; sourceTree = "<group>"; };
+		7B723AB919B22C240046FB56 /* bedroom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bedroom.png; sourceTree = "<group>"; };
+		7B723ABA19B22C240046FB56 /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car.png; sourceTree = "<group>"; };
+		7B723ABB19B22C240046FB56 /* church.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = church.png; sourceTree = "<group>"; };
+		7B723ABC19B22C240046FB56 /* club.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = club.png; sourceTree = "<group>"; };
+		7B723ABD19B22C240046FB56 /* hotel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hotel.png; sourceTree = "<group>"; };
+		7B723ABE19B22C240046FB56 /* jacuzzi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jacuzzi.png; sourceTree = "<group>"; };
+		7B723ABF19B22C240046FB56 /* kitchen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kitchen.png; sourceTree = "<group>"; };
+		7B723AC019B22C240046FB56 /* parking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = parking.png; sourceTree = "<group>"; };
+		7B723AC119B22C240046FB56 /* street.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = street.png; sourceTree = "<group>"; };
+		7B723AC219B22C240046FB56 /* theatre.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = theatre.png; sourceTree = "<group>"; };
+		7B723AC319B22C240046FB56 /* titles.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = titles.psd; sourceTree = "<group>"; };
+		7B723AC419B22C240046FB56 /* toilets.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toilets.png; sourceTree = "<group>"; };
+		7B723AD319B2360D0046FB56 /* SendConquestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendConquestViewController.swift; sourceTree = "<group>"; };
+		7B7527A219B389840096E7ED /* logo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo1.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,10 +131,14 @@
 		4181634319A9207600287289 /* App_V0 */ = {
 			isa = PBXGroup;
 			children = (
+				7B7527A119B389840096E7ED /* logos */,
 				4181634619A9207600287289 /* AppDelegate.swift */,
+				7B723A8A19B219B00046FB56 /* WhereConquestViewController.swift */,
+				7B723AB619B22C240046FB56 /* whereLogos */,
 				4181637F19AA59FB00287289 /* send.png */,
 				4181637319AA2D2F00287289 /* Main.storyboard */,
 				4181637719AA3B9A00287289 /* manLogo.png */,
+				7B08CC5A19B1FD6B00EAE1B9 /* AppearanceConquestViewController.swift */,
 				4181637B19AA3D9E00287289 /* unknownLogo.png */,
 				4181637919AA3C4A00287289 /* womanLogo.png */,
 				4181636519A9301B00287289 /* connect.png */,
@@ -110,6 +150,7 @@
 				4181636719A9349600287289 /* ConnectionViewController.swift */,
 				4181634D19A9207600287289 /* Images.xcassets */,
 				4181634419A9207600287289 /* Supporting Files */,
+				7B723AD319B2360D0046FB56 /* SendConquestViewController.swift */,
 			);
 			path = App_V0;
 			sourceTree = "<group>";
@@ -137,6 +178,35 @@
 				4181635819A9207600287289 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7B723AB619B22C240046FB56 /* whereLogos */ = {
+			isa = PBXGroup;
+			children = (
+				7B723AB719B22C240046FB56 /* airport.png */,
+				7B723AB819B22C240046FB56 /* beach.png */,
+				7B723AB919B22C240046FB56 /* bedroom.png */,
+				7B723ABA19B22C240046FB56 /* car.png */,
+				7B723ABB19B22C240046FB56 /* church.png */,
+				7B723ABC19B22C240046FB56 /* club.png */,
+				7B723ABD19B22C240046FB56 /* hotel.png */,
+				7B723ABE19B22C240046FB56 /* jacuzzi.png */,
+				7B723ABF19B22C240046FB56 /* kitchen.png */,
+				7B723AC019B22C240046FB56 /* parking.png */,
+				7B723AC119B22C240046FB56 /* street.png */,
+				7B723AC219B22C240046FB56 /* theatre.png */,
+				7B723AC319B22C240046FB56 /* titles.psd */,
+				7B723AC419B22C240046FB56 /* toilets.png */,
+			);
+			path = whereLogos;
+			sourceTree = "<group>";
+		};
+		7B7527A119B389840096E7ED /* logos */ = {
+			isa = PBXGroup;
+			children = (
+				7B7527A219B389840096E7ED /* logo1.png */,
+			);
+			path = logos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,6 +259,11 @@
 					4181634019A9207600287289 = {
 						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = 44FSX8D2C2;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 					4181635219A9207600287289 = {
 						CreatedOnToolsVersion = 6.0;
@@ -220,14 +295,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B723AC819B22C240046FB56 /* car.png in Resources */,
 				4181637419AA2D2F00287289 /* Main.storyboard in Resources */,
+				7B723AC619B22C240046FB56 /* beach.png in Resources */,
+				7B723ACA19B22C240046FB56 /* club.png in Resources */,
 				4181637A19AA3C4A00287289 /* womanLogo.png in Resources */,
+				7B723ACF19B22C240046FB56 /* street.png in Resources */,
+				7B7527A319B389840096E7ED /* logo1.png in Resources */,
 				4181637019AA0FB900287289 /* login.png in Resources */,
+				7B723ACE19B22C240046FB56 /* parking.png in Resources */,
+				7B723AC719B22C240046FB56 /* bedroom.png in Resources */,
+				7B723AC519B22C240046FB56 /* airport.png in Resources */,
 				4181637819AA3B9A00287289 /* manLogo.png in Resources */,
 				4181636619A9301B00287289 /* connect.png in Resources */,
+				7B723AD119B22C240046FB56 /* titles.psd in Resources */,
+				7B723AC919B22C240046FB56 /* church.png in Resources */,
 				4181638019AA59FB00287289 /* send.png in Resources */,
 				4181637C19AA3D9E00287289 /* unknownLogo.png in Resources */,
+				7B723AD219B22C240046FB56 /* toilets.png in Resources */,
+				7B723ACB19B22C240046FB56 /* hotel.png in Resources */,
+				7B723ACC19B22C240046FB56 /* jacuzzi.png in Resources */,
+				7B723ACD19B22C240046FB56 /* kitchen.png in Resources */,
 				4181634E19A9207600287289 /* Images.xcassets in Resources */,
+				7B723AD019B22C240046FB56 /* theatre.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,11 +335,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B723A8B19B219B00046FB56 /* WhereConquestViewController.swift in Sources */,
 				4181634919A9207600287289 /* ViewController.swift in Sources */,
 				4181638219AA6A8C00287289 /* RankingConquestViewController.swift in Sources */,
+				7B723AD419B2360D0046FB56 /* SendConquestViewController.swift in Sources */,
 				4181634719A9207600287289 /* AppDelegate.swift in Sources */,
 				4181637E19AA406E00287289 /* newConquestViewController.swift in Sources */,
 				4181637619AA2F8D00287289 /* ConnectedViewController.swift in Sources */,
+				7B08CC5B19B1FD6B00EAE1B9 /* AppearanceConquestViewController.swift in Sources */,
 				4181636819A9349600287289 /* ConnectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,13 +448,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				INFOPLIST_FILE = App_V0/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "95dff5b7-7e6e-4992-8b81-c44738008be0";
 			};
 			name = Debug;
 		};
@@ -370,13 +463,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				INFOPLIST_FILE = App_V0/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "95dff5b7-7e6e-4992-8b81-c44738008be0";
 			};
 			name = Release;
 		};

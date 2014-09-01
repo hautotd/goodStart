@@ -18,15 +18,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var userData: NSDictionary?
     
     struct newConquest {
-        var sex = ""
-        var ranking = 0
-        var place = ""
-        var physicalCaracteristics:NSArray
+        var sex : NSString
+        var ranking : Double
+        var place : NSString
+        var date:Double
+        var comment:NSString
+        var whereStr: NSString
+        var job: NSString
+        var nationality: NSString
+        var height: NSString
+        var weight: NSString
+        var age: NSString
+        var friendsShared: NSArray
+        
+        init(){
+            sex = ""
+            ranking = 0
+             place = ""
+             date = 0
+             comment = ""
+             whereStr = ""
+             job = ""
+             nationality = ""
+             height = ""
+             weight = ""
+             age = ""
+
+            friendsShared = []
+        }
+        func printNewConquest(){
+    println(" ***** NewCOnquestObject ******")
+            println(self.sex + " " + NSString(format: "%.0f",self.ranking) + " " + self.place)
+            println(NSString(format: "%.0f",self.date) + " " + self.comment + " " + self.whereStr)
+            println(self.job + " " + self.nationality)
+            println(self.height + " " + self.weight + " " + self.age)
+      println(" ***** ******** ******")
+        }
     }
+    
+    var newConquestObject: newConquest =  newConquest()
 
-
+    
+    
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
-        // Override point for customization after application launch.
+       UIApplication.sharedApplication().registerForRemoteNotifications()
+        let settings = UIUserNotificationSettings(forTypes: .Alert, categories: nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
         return true
     }
 
@@ -34,7 +71,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     }
-
+ 
+    // implemented in your application delegate
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData!) {
+        println("Got token data! \(deviceToken)")
+    }
+    
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError!) {
+        println("Couldn't register: \(error)")
+    }
+    
+      func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
+       println("settings")
+    }
+    
+    
     func applicationDidEnterBackground(application: UIApplication!) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
@@ -51,6 +102,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication!) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+
 
 
 }
