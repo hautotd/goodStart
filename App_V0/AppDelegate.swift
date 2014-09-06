@@ -1,4 +1,4 @@
-//
+    //
 //  AppDelegate.swift
 //  App_V0
 //
@@ -61,10 +61,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
-       UIApplication.sharedApplication().registerForRemoteNotifications()
-        let settings = UIUserNotificationSettings(forTypes: .Alert, categories: nil)
-        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+        // Override point for customization after application launch.
+        
+        let Device = UIDevice.currentDevice()
+        let iosVersion = NSString(string: Device.systemVersion).doubleValue
+        let iOS8 = iosVersion >= 8
+        let iOS7 = iosVersion >= 7 && iosVersion < 8
+        
+        if iOS8
+        {
+            println("We are in IO8!")
+              UIApplication.sharedApplication().registerForRemoteNotifications()
+            application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound | UIUserNotificationType.Alert | UIUserNotificationType.Badge, categories: nil))
+        }
+        else if iOS7
+        {
+            //do iOS 7 stuff, which is pretty much nothing for local notifications.
+println("We are in IO7!")
+            application.registerForRemoteNotificationTypes( UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound | UIRemoteNotificationType.Alert)
+        }
         return true
+//       UIApplication.sharedApplication().registerForRemoteNotifications()
+//        let settings = UIUserNotificationSettings(forTypes: .Alert, categories: nil)
+//        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+//        return true
     }
 
     func applicationWillResignActive(application: UIApplication!) {

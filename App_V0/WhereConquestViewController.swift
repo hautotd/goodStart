@@ -11,8 +11,8 @@ import UIKit
 class WhereConquestViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var whereTableView: UITableView!
-    var items = ["chambre", "hotel", "cimetiere"]
-    var picturesArray = ["hotel.png", "parking.png", "church.png", "bedroom.png", "airport.png", "car.png", "beach.png", "jacuzzi.png", "kitchen.png", "street.png", "theatre.png", "club.png"]
+    var items = ["hotel", "parking", "church", "bedroom", "airport", "car", "beach", "jacuzzi", "kitchen", "street", "theatre", "club"]
+//    var picturesArray = ["hotel.png", "parking.png", "church.png", "bedroom.png", "airport.png", "car.png", "beach.png", "jacuzzi.png", "kitchen.png", "street.png", "theatre.png", "club.png"]
     var appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
     
     
@@ -27,25 +27,29 @@ class WhereConquestViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
   func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        return picturesArray.count
+        return items.count
     }
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         var cell: UITableViewCell = self.whereTableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
         
-        var imageName = UIImage(named: picturesArray[indexPath.row])
-        cell.imageView.autoresizesSubviews = false
-        cell.contentMode = UIViewContentMode.Center
-        cell.imageView.image = imageName
-        cell.shouldIndentWhileEditing = false
-     
+//        var imageName = UIImage(named: picturesArray[indexPath.row])
+//        cell.imageView.autoresizesSubviews = false
+//        cell.contentMode = UIViewContentMode.Center
+//        cell.imageView.image = imageName
+//        cell.shouldIndentWhileEditing = false
+        cell.textLabel.textAlignment = NSTextAlignment.Center
+        cell.backgroundColor = UIColor(rgb: 0x30b3b2)
+        cell.textLabel.textColor = UIColor.whiteColor()
+        cell.textLabel.font = UIFont(name: "Arial", size: 40 )
+     cell.textLabel.text = items[indexPath.row].uppercaseString
       
         return cell
     }
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         println("You selected cell #\(indexPath.row)!")
-        appDelegate.newConquestObject.whereStr = picturesArray[indexPath.row]
+        appDelegate.newConquestObject.whereStr = items[indexPath.row]
         
     performSegueWithIdentifier("goToJob", sender: self)    }
     

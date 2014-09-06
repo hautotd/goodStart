@@ -30,7 +30,7 @@ class ViewController: UIViewController {
             println("------------------------")
             let del = UIApplication.sharedApplication().delegate as AppDelegate
             del.userData = rawData as? NSDictionary
-            self.performSegueWithIdentifier("connectedSegue", sender:self)
+          self.performSegueWithIdentifier("connectedSegue", sender:self)
             
         }
         }else{

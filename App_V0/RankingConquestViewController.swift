@@ -52,6 +52,12 @@ println(stringValue)
         return true
     }
     
+     func textFieldDidBeginEditing(textField: UITextField!) {
+       
+    }
+    
+    
+    
   override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
         self.view.endEditing(true)
     }
@@ -60,4 +66,6 @@ println(stringValue)
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
 }

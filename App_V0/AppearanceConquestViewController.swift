@@ -52,9 +52,19 @@ class AppearanceConquestViewController: UIViewController , UIPickerViewDelegate,
         return nationalityData!.count
     }
     
-    func pickerView(pickerView: UIPickerView!, titleForRow row: Int, forComponent component: Int) -> String
-    {
-        return "\(nationalityData[row])"
+//    func pickerView(pickerView: UIPickerView!, titleForRow row: Int, forComponent component: Int) -> String
+//    {
+//        return "\(nationalityData[row])"
+//    }
+    
+      func pickerView(pickerView: UIPickerView!, viewForRow row: Int, forComponent component: Int, reusingView view: UIView!) -> UIView! {
+        var label:UILabel = UILabel()
+     //   label.backgroundColor = UIColor.whiteColor()
+        label.textColor = UIColor.whiteColor()
+        label.textAlignment = NSTextAlignment.Center
+
+        label.text = nationalityData[row] as NSString
+        return label
     }
     
     func pickerView(pickerView: UIPickerView!, didSelectRow row: Int, inComponent component: Int)
