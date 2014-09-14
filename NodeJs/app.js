@@ -4,6 +4,8 @@ var server = require('http').createServer(app);
 var request = require('request');
 var fs = require('fs');
 var mongoose = require('mongoose');
+var agent = require('./agent/_header');
+
 mongoose.connect('mongodb://localhost/users');
 
 server.listen(8080);
@@ -28,13 +30,13 @@ var userSchema = {
             gender: String,
             friendsShared: [{
                 userID: String
-}]
-}
-],
+            }]
+        }
+    ],
     friends: [{
         userId: String,
         accepted: String
-}]
+    }]
 };
 
 var User = mongoose.model('users', userSchema);
@@ -144,6 +146,20 @@ app.post('/users/:username/history', function (req, res) {
                     });
                 }
             });
+        })
+    }
+});
+
+
+app.post('/notification/', function (req, res) {
+    var data = '';
+    if (req.method === 'POST') {
+        req.on('data', function (chunk) {
+            data += chunk;
+        });
+        req.on('end', function () {
+            agent.createMessage().device("<acc929df 77f116c5 2a608935 e871139e 32692856 d77734a6 446b9ed4 455ddbc1>").alert('Farid: Une francaise notée 9/10. Lieux AEROPORT OCTEVILLE').badge(3).send();
+            return res.send("notification send");
         })
     }
 });

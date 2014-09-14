@@ -39,7 +39,7 @@ class WhereConquestViewController: UIViewController, UITableViewDelegate, UITabl
 //        cell.imageView.image = imageName
 //        cell.shouldIndentWhileEditing = false
         cell.textLabel.textAlignment = NSTextAlignment.Center
-        cell.backgroundColor = UIColor(rgb: 0x30b3b2)
+        cell.backgroundColor = UIColor(rgb: 0xf89854)
         cell.textLabel.textColor = UIColor.whiteColor()
         cell.textLabel.font = UIFont(name: "Arial", size: 40 )
      cell.textLabel.text = items[indexPath.row].uppercaseString

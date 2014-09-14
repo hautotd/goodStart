@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var surname: NSString = ""
     var name: NSString = ""
+    var deviceTokenString: NSString = ""
     
     var userData: NSDictionary?
     
@@ -94,6 +95,8 @@ println("We are in IO7!")
  
     // implemented in your application delegate
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData!) {
+        self.deviceTokenString =    deviceToken.description
+        println("tokenString: \(deviceToken.description)")
         println("Got token data! \(deviceToken)")
     }
     

@@ -15,16 +15,16 @@ class SendConquestViewController: UIViewController, UITableViewDelegate, UITable
     var appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
     
     var friendsArray = ["<f9a17e4a 652b280f bad164ce c1951832 3b9202dc 087a4f2b e0149585 d516bedf>","<acc929df 77f116c5 2a608935 e871139e 32692856 d77734a6 446b9ed4 455ddbc1>"]
-      var friend1  = ["name": "IPDAD", "deviceId": "<f9a17e4a 652b280f bad164ce c1951832 3b9202dc 087a4f2b e0149585 d516bedf>"] as Dictionary<String,String>
-    
-        var friend2  = ["name": "IPHONE", "deviceId": "<acc929df 77f116c5 2a608935 e871139e 32692856 d77734a6 446b9ed4 455ddbc1>"] as Dictionary<String,String>
+    var friend1  = ["name": "IPDAD", "deviceId": "<f9a17e4a 652b280f bad164ce c1951832 3b9202dc 087a4f2b e0149585 d516bedf>"] as Dictionary<String,String>
+    var friend2  = ["name": "IPHONE", "deviceId": "<acc929df 77f116c5 2a608935 e871139e 32692856 d77734a6 446b9ed4 455ddbc1>"] as Dictionary<String,String>
     var friend3  = ["name": "AMBRE", "deviceId": "<67c73a5e f9baf580 3343b8aa 29e80814 2af032b3 e030b704 0c624f15 f19ae273>"] as Dictionary<String,String>
-  
+    var friend4  = ["name": "ARNAUD", "deviceId": "d4056ebe 475f1d34 6b13da92 de93df8f 892500ae dd79cd74 6f47ea10 0a4a7ef3"] as Dictionary<String,String>
+    
     
     var friendsDictionnary : Array<Dictionary<String,String>> = []
     var friendsToNotify : Array<Dictionary<String,String>> = []
     
-     let swipeRec = UISwipeGestureRecognizer()
+    let swipeRec = UISwipeGestureRecognizer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,18 +37,20 @@ class SendConquestViewController: UIViewController, UITableViewDelegate, UITable
         self.automaticallyAdjustsScrollViewInsets = false;
         self.friendsTableView.separatorStyle = UITableViewCellSeparatorStyle.None
         friendsDictionnary.append(friend1)
-         friendsDictionnary.append(friend2)
+        friendsDictionnary.append(friend2)
         friendsDictionnary.append(friend3)
+        friendsDictionnary.append(friend4)
+        friendsDictionnary.append(["name": "TEST", "deviceId": self.appDelegate.deviceTokenString] as Dictionary<String,String>)
     }
     
-   func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         return friendsDictionnary.count
     }
     
     func  tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         var cell: UITableViewCell = self.friendsTableView.dequeueReusableCellWithIdentifier("friends") as UITableViewCell
         //cell.textLabel.text = friendsArray[indexPath.row]
-        cell.backgroundColor = UIColor(rgb: 0x30b3b2)
+        cell.backgroundColor = UIColor(rgb: 0xf89854)
         cell.textLabel.textColor = UIColor.whiteColor()
         cell.textLabel.font = UIFont(name: "Arial", size: 40 )
         var currentObj : Dictionary<String,String> = friendsDictionnary[indexPath.row] as Dictionary<String,String>
@@ -63,7 +65,7 @@ class SendConquestViewController: UIViewController, UITableViewDelegate, UITable
         selectedCell.accessoryType = UITableViewCellAccessoryType.Checkmark
         //sendNotification(friendsArray)
         friendsToNotify.append(friendsDictionnary[indexPath.row])
-        sendNotification(friendsToNotify)
+        
         
     }
     
@@ -74,62 +76,62 @@ class SendConquestViewController: UIViewController, UITableViewDelegate, UITable
         var foundIndex = 0
         for(i, value) in enumerate(friendsToNotify){
             if selectedCell.textLabel.text == value["name"] {
-             foundIndex = i
+                foundIndex = i
             }
         }
         friendsToNotify.removeAtIndex(foundIndex)
     }
     
-    func sendNotification(friendArrayToSend: NSArray){
+    func sendNotification(friendArrayToSend: NSArray, message: NSString){
         var request = NSMutableURLRequest(URL: NSURL(string: "http://54.77.86.119:8080/notification"))
-        var session = NSURLSession()
+        
         request.HTTPMethod = "POST"
         
         for (friendObj) in friendsToNotify {
             
             println(friendObj["name"]!)
-
-        
-        // TODO delete
-        var deviceIdToSend:NSString = friendObj["deviceId"]!
-        var params = ["deviceId" : deviceIdToSend,
-                    "message": "test via app"] as Dictionary<String,NSObject>
-        println(deviceIdToSend)
-        
-
-        var err: NSError?
-        request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
-        
-        
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler: { (response:NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-            
-            println("Response: \(response)")
             
             
-            var strData = NSString(data: data, encoding: NSUTF8StringEncoding)
+            // TODO delete
+            var deviceIdToSend:NSString = friendObj["deviceId"]!
+            var params = ["deviceId" : deviceIdToSend,
+                "message": message] as Dictionary<String,NSObject>
+            println(deviceIdToSend)
+            
             
             var err: NSError?
+            request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
             
-            println("strData: \(strData)")
-//            dispatch_async(dispatch_get_main_queue(), {
-//                if(strData == "history upserted"){
-//                    let alert = UIAlertView()
-//                    alert.title = "History"
-//                    alert.message = "User history updated ! "
-//                    alert.addButtonWithTitle("Ok")
-//                    alert.show()
-//                    self.performSegueWithIdentifier("goToHistoryFromSend", sender: self)
-//                }
-//                else{
-//                    let alert = UIAlertView()
-//                    alert.title = "Problème"
-//                    alert.message = "Oups ! erreur de création "
-//                    alert.addButtonWithTitle("Ok")
-//                    alert.show()
-//                }
-//            })
             
-        })
+            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler: { (response:NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+                
+                println("Response: \(response)")
+                
+                
+                var strData = NSString(data: data, encoding: NSUTF8StringEncoding)
+                
+                var err: NSError?
+                
+                println("strData: \(strData)")
+                //            dispatch_async(dispatch_get_main_queue(), {
+                //                if(strData == "history upserted"){
+                //                    let alert = UIAlertView()
+                //                    alert.title = "History"
+                //                    alert.message = "User history updated ! "
+                //                    alert.addButtonWithTitle("Ok")
+                //                    alert.show()
+                //                    self.performSegueWithIdentifier("goToHistoryFromSend", sender: self)
+                //                }
+                //                else{
+                //                    let alert = UIAlertView()
+                //                    alert.title = "Problème"
+                //                    alert.message = "Oups ! erreur de création "
+                //                    alert.addButtonWithTitle("Ok")
+                //                    alert.show()
+                //                }
+                //            })
+                
+            })
         }
     }
     
@@ -142,12 +144,18 @@ class SendConquestViewController: UIViewController, UITableViewDelegate, UITable
         let userName: NSString = userInfos?.objectForKey("name") as NSString
         println(userName)
         var request = NSMutableURLRequest(URL: NSURL(string: "http://54.77.86.119:8080/users/\(userName)/history"))
-        var session = NSURLSession()
+       
         request.HTTPMethod = "POST"
         
         let date : NSTimeInterval = NSDate().timeIntervalSince1970
         appDelegate.newConquestObject.printNewConquest()
         
+        let messageToNotify: NSString = "Nouvelle entrée de " + userName + ". " + "Genre : " + appDelegate.newConquestObject.sex  + " - Nationalité : " + appDelegate.newConquestObject.nationality + " - Métier : " + appDelegate.newConquestObject.job + " - Note : " + NSString(format: "%.0f",appDelegate.newConquestObject.ranking)
+        
+        
+        println(messageToNotify)
+        
+        sendNotification(friendsToNotify, message: messageToNotify)
         
         var params = [
             "date" : date,
@@ -160,7 +168,7 @@ class SendConquestViewController: UIViewController, UITableViewDelegate, UITable
             "weight": appDelegate.newConquestObject.weight,
             "age": appDelegate.newConquestObject.age,
             "gender": appDelegate.newConquestObject.sex
-        ] as Dictionary<String,NSObject>
+            ] as Dictionary<String,NSObject>
         
         
         var err: NSError?
@@ -168,14 +176,9 @@ class SendConquestViewController: UIViewController, UITableViewDelegate, UITable
         
         
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler: { (response:NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-            
             println("Response: \(response)")
-            
-            
             var strData = NSString(data: data, encoding: NSUTF8StringEncoding)
-            
             var err: NSError?
-            
             println("strData: \(strData)")
             dispatch_async(dispatch_get_main_queue(), {
                 if(strData == "history upserted"){
@@ -197,14 +200,14 @@ class SendConquestViewController: UIViewController, UITableViewDelegate, UITable
             
         })
     }
-
+    
     func swipedView(){
         performSegueWithIdentifier("goToJobs", sender: self)
     }
     
-
     
-         override func didReceiveMemoryWarning() {
+    
+    override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }

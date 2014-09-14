@@ -10,8 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var connectionButton: UIButton!
- 
-     var prenom:NSString = ""
+    
+    var prenom:NSString = ""
     
     override func viewDidAppear(animated: Bool) {
         
@@ -20,19 +20,18 @@ class ViewController: UIViewController {
         println(rawData)
         
         if(rawData != nil){
-        let test = rawData as NSDictionary
-        println("Local stroage user infos")
-        println(test)
-        println("------------------------")
-        if(test !=  ""){
+            let test = rawData as NSDictionary
+            println("Local stroage user infos")
+            println(test)
             println("------------------------")
-            println("Already connected")
-            println("------------------------")
-            let del = UIApplication.sharedApplication().delegate as AppDelegate
-            del.userData = rawData as? NSDictionary
-          self.performSegueWithIdentifier("connectedSegue", sender:self)
-            
-        }
+            if(test !=  ""){
+                println("------------------------")
+                println("Already connected")
+                println("------------------------")
+                let del = UIApplication.sharedApplication().delegate as AppDelegate
+                del.userData = rawData as? NSDictionary
+                self.performSegueWithIdentifier("newEntry", sender:self)
+            }
         }else{
             println("------------------------")
             println("Not connected")
@@ -42,7 +41,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       let del = UIApplication.sharedApplication().delegate as AppDelegate
+        let del = UIApplication.sharedApplication().delegate as AppDelegate
         println("current prenom")
         println(del.surname)
         var birdTexture1 = UIImage(named: "connect.png") as UIImage
@@ -56,13 +55,13 @@ class ViewController: UIViewController {
     func goToFunction(){
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     func goToFirstView(){
     }
-
+    
 }
 

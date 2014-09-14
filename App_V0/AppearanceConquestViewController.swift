@@ -22,7 +22,7 @@ class AppearanceConquestViewController: UIViewController , UIPickerViewDelegate,
     var weightData : NSArray!
     
     override func viewDidLoad() {
-        nationalityData = ["French", "English", "German", "Spanish"]
+        nationalityData = ["French", "English", "German", "Spanish", "American", "Canadian", "Vietnam", "Chineese"]
         heightData = ["Small", "Medium", "Tall"]
         weightData = ["Skinny", "Normal", "Fit", "Chubby"]
       //self.nationalityPicker.selectRow(0, inComponent: 0, animated: true)
@@ -51,18 +51,14 @@ class AppearanceConquestViewController: UIViewController , UIPickerViewDelegate,
     {
         return nationalityData!.count
     }
-    
-//    func pickerView(pickerView: UIPickerView!, titleForRow row: Int, forComponent component: Int) -> String
-//    {
-//        return "\(nationalityData[row])"
-//    }
+ 
     
       func pickerView(pickerView: UIPickerView!, viewForRow row: Int, forComponent component: Int, reusingView view: UIView!) -> UIView! {
         var label:UILabel = UILabel()
      //   label.backgroundColor = UIColor.whiteColor()
         label.textColor = UIColor.whiteColor()
         label.textAlignment = NSTextAlignment.Center
-
+        label.font = UIFont(name: "Arial", size: 40 )
         label.text = nationalityData[row] as NSString
         return label
     }
@@ -70,6 +66,10 @@ class AppearanceConquestViewController: UIViewController , UIPickerViewDelegate,
     func pickerView(pickerView: UIPickerView!, didSelectRow row: Int, inComponent component: Int)
     {
        // appDelegate.newConquestObject.nationality = nationalityData![row] as NSString
+    }
+    
+    func pickerView(pickerView: UIPickerView!, rowHeightForComponent component: Int) -> CGFloat {
+        return 40
     }
 
     
