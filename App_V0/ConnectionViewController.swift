@@ -88,8 +88,6 @@ class ConnectionViewController: UIViewController {
             
             let str:String = NSString(data: dataParsed, encoding: NSUTF8StringEncoding)
             
-            
-            // TO change when the right value is sent back bby the node if no user found !
             if(str=="{}"){
                 dispatch_async(dispatch_get_main_queue(), {
                     println("error")

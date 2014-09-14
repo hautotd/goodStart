@@ -15,9 +15,9 @@ class SendConquestViewController: UIViewController, UITableViewDelegate, UITable
     var appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
     
     var friendsArray = ["<f9a17e4a 652b280f bad164ce c1951832 3b9202dc 087a4f2b e0149585 d516bedf>","<acc929df 77f116c5 2a608935 e871139e 32692856 d77734a6 446b9ed4 455ddbc1>"]
-    var friend1  = ["name": "IPDAD", "deviceId": "<f9a17e4a 652b280f bad164ce c1951832 3b9202dc 087a4f2b e0149585 d516bedf>"] as Dictionary<String,String>
-    var friend2  = ["name": "IPHONE", "deviceId": "<acc929df 77f116c5 2a608935 e871139e 32692856 d77734a6 446b9ed4 455ddbc1>"] as Dictionary<String,String>
-    var friend3  = ["name": "AMBRE", "deviceId": "<67c73a5e f9baf580 3343b8aa 29e80814 2af032b3 e030b704 0c624f15 f19ae273>"] as Dictionary<String,String>
+    var friend1  = ["name": "IPDAD", "deviceId": "f9a17e4a 652b280f bad164ce c1951832 3b9202dc 087a4f2b e0149585 d516bedf"] as Dictionary<String,String>
+    var friend2  = ["name": "IPHONE", "deviceId": "acc929df 77f116c5 2a608935 e871139e 32692856 d77734a6 446b9ed4 455ddbc1"] as Dictionary<String,String>
+    var friend3  = ["name": "AMBRE", "deviceId": "67c73a5e f9baf580 3343b8aa 29e80814 2af032b3 e030b704 0c624f15 f19ae273"] as Dictionary<String,String>
     var friend4  = ["name": "ARNAUD", "deviceId": "d4056ebe 475f1d34 6b13da92 de93df8f 892500ae dd79cd74 6f47ea10 0a4a7ef3"] as Dictionary<String,String>
     
     
