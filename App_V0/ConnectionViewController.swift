@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class ConnectionViewController: UIViewController {
+class ConnectionViewController: UIViewController, UITextFieldDelegate{
     
     @IBOutlet var connectionView: UIView!
     @IBOutlet weak var loginInput: UITextField!
@@ -30,6 +30,12 @@ class ConnectionViewController: UIViewController {
         println("ok")
     }
     
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        textField.resignFirstResponder()
+        println("click")
+        return true
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -37,8 +43,6 @@ class ConnectionViewController: UIViewController {
     
     func configureConnectionSpinner(){
         connectionSpinner.hidesWhenStopped = true
-        
-        
     }
     
     
@@ -65,8 +69,8 @@ class ConnectionViewController: UIViewController {
         println(loginInput.text)
         println(passwordInput.text)
         
-        let urlPath = "http://54.77.86.119:8080/users/\(loginInput.text)"
-        let url: NSURL = NSURL(string: urlPath)
+        let urlPath = "http://54.77.86.119:8080/users/\(loginInput.text)/\(passwordInput.text)"
+        let url: NSURL = NSURL(string: urlPath)!
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithURL(url, completionHandler: {data, response, error -> Void in
             println("Task completed")
@@ -86,7 +90,7 @@ class ConnectionViewController: UIViewController {
             var err: NSError?
             let dataParsed = NSData(bytes: data.bytes, length: Int(data.length))
             
-            let str:String = NSString(data: dataParsed, encoding: NSUTF8StringEncoding)
+            let str:String = NSString(data: dataParsed, encoding: NSUTF8StringEncoding)!
             
             if(str=="{}"){
                 dispatch_async(dispatch_get_main_queue(), {
@@ -127,7 +131,7 @@ class ConnectionViewController: UIViewController {
                     
                     // println(test)
                     NSUserDefaults.standardUserDefaults().synchronize()
-                    let secondViewController = self.storyboard.instantiateViewControllerWithIdentifier("MyCustomViewController") as UIViewController
+                    let secondViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MyCustomViewController") as UIViewController
                     self.presentViewController(secondViewController, animated: true, completion: nil)
                     
                     

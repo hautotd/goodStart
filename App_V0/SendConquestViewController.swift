@@ -14,16 +14,17 @@ class SendConquestViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var sendConquest: UIButton!
     var appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
     
-    var friendsArray = ["<f9a17e4a 652b280f bad164ce c1951832 3b9202dc 087a4f2b e0149585 d516bedf>","<acc929df 77f116c5 2a608935 e871139e 32692856 d77734a6 446b9ed4 455ddbc1>"]
     var friend1  = ["name": "IPDAD", "deviceId": "f9a17e4a 652b280f bad164ce c1951832 3b9202dc 087a4f2b e0149585 d516bedf"] as Dictionary<String,String>
     var friend2  = ["name": "IPHONE", "deviceId": "acc929df 77f116c5 2a608935 e871139e 32692856 d77734a6 446b9ed4 455ddbc1"] as Dictionary<String,String>
     var friend3  = ["name": "AMBRE", "deviceId": "67c73a5e f9baf580 3343b8aa 29e80814 2af032b3 e030b704 0c624f15 f19ae273"] as Dictionary<String,String>
     var friend4  = ["name": "ARNAUD", "deviceId": "d4056ebe 475f1d34 6b13da92 de93df8f 892500ae dd79cd74 6f47ea10 0a4a7ef3"] as Dictionary<String,String>
     
     
-    var friendsDictionnary : Array<Dictionary<String,String>> = []
-    var friendsToNotify : Array<Dictionary<String,String>> = []
+   var friendsDictionnary : Array<Dictionary<String,String>> = []
+   //var friendsDictionnary : Array =
     
+   var friendsToNotify : Array<Dictionary<String,String>> = []
+    // var friendsToNotify : Array = Array()
     let swipeRec = UISwipeGestureRecognizer()
     
     override func viewDidLoad() {
@@ -33,67 +34,79 @@ class SendConquestViewController: UIViewController, UITableViewDelegate, UITable
         friendsTableView.addGestureRecognizer(swipeRec)
         friendsTableView.userInteractionEnabled = true
         
-        self.friendsTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "friends")
+        var cell = UINib(nibName: "MyCell", bundle: nil)
+        self.friendsTableView.registerNib(cell!, forCellReuseIdentifier: "cell")
+        
+        //self.friendsTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "friends")
         self.automaticallyAdjustsScrollViewInsets = false;
         self.friendsTableView.separatorStyle = UITableViewCellSeparatorStyle.None
-        friendsDictionnary.append(friend1)
-        friendsDictionnary.append(friend2)
-        friendsDictionnary.append(friend3)
-        friendsDictionnary.append(friend4)
-        friendsDictionnary.append(["name": "TEST", "deviceId": self.appDelegate.deviceTokenString] as Dictionary<String,String>)
+//        friendsDictionnary.append(friend1)
+//        friendsDictionnary.append(friend2)
+//        friendsDictionnary.append(friend3)
+//        friendsDictionnary.append(friend4)
+//        friendsDictionnary.append(["name": "TEST", "deviceId": self.appDelegate.deviceTokenString] as Dictionary<String,String>)
+        let userInfos: NSDictionary? = NSUserDefaults.standardUserDefaults().objectForKey("userInfos") as NSDictionary?
+         println(userInfos)
+        let userFriends: Array<Dictionary<String,String>> = userInfos?.objectForKey("friends") as Array<Dictionary<String,String>>
+        println(userFriends)
+        friendsDictionnary = userFriends
     }
     
-    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return friendsDictionnary.count
     }
     
-    func  tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        var cell: UITableViewCell = self.friendsTableView.dequeueReusableCellWithIdentifier("friends") as UITableViewCell
+    func  tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCellWithIdentifier("friends") as? UITableViewCell
+        if !(cell != nil) {
+            cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "cell")
+        }
         //cell.textLabel.text = friendsArray[indexPath.row]
-        cell.backgroundColor = UIColor(rgb: 0xf89854)
-        cell.textLabel.textColor = UIColor.whiteColor()
-        cell.textLabel.font = UIFont(name: "Arial", size: 40 )
+        cell!.backgroundColor = UIColor(rgb: 0xf89854)
+        cell!.textLabel?.textColor = UIColor.whiteColor()
+        cell!.textLabel?.font = UIFont(name: "Arial", size: 40 )
         var currentObj : Dictionary<String,String> = friendsDictionnary[indexPath.row] as Dictionary<String,String>
-        cell.textLabel.text = currentObj["name"]
-        return cell
+        cell!.textLabel?.text = currentObj["name"]
+        return cell!
     }
     
     
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         println("You selected cell #\(indexPath.row)!")
-        var selectedCell : UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)
+        var selectedCell : UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
         selectedCell.accessoryType = UITableViewCellAccessoryType.Checkmark
         //sendNotification(friendsArray)
         friendsToNotify.append(friendsDictionnary[indexPath.row])
-        
+        println(friendsToNotify)
         
     }
     
-    func tableView(tableView: UITableView!, didDeselectRowAtIndexPath indexPath: NSIndexPath!) {
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         println("You deselected cell #\(indexPath.row)!")
-        var selectedCell : UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)
+        var selectedCell : UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
         selectedCell.accessoryType = UITableViewCellAccessoryType.None
         var foundIndex = 0
         for(i, value) in enumerate(friendsToNotify){
-            if selectedCell.textLabel.text == value["name"] {
+            if selectedCell.textLabel?.text == value["name"] {
                 foundIndex = i
             }
         }
         friendsToNotify.removeAtIndex(foundIndex)
+                println(friendsToNotify)
     }
     
     func sendNotification(friendArrayToSend: NSArray, message: NSString){
-        var request = NSMutableURLRequest(URL: NSURL(string: "http://54.77.86.119:8080/notification"))
+        var request = NSMutableURLRequest(URL: NSURL(string: "http://54.77.86.119:8080/notification")!)
         
         request.HTTPMethod = "POST"
-        
+        println(friendsToNotify)
         for (friendObj) in friendsToNotify {
             
             println(friendObj["name"]!)
             
             
             // TODO delete
-            var deviceIdToSend:NSString = friendObj["deviceId"]!
+            var deviceIdToSend:NSString = friendObj["userId"]!
             var params = ["deviceId" : deviceIdToSend,
                 "message": message] as Dictionary<String,NSObject>
             println(deviceIdToSend)
@@ -143,7 +156,7 @@ class SendConquestViewController: UIViewController, UITableViewDelegate, UITable
         let userInfos: NSDictionary? = NSUserDefaults.standardUserDefaults().objectForKey("userInfos") as NSDictionary?
         let userName: NSString = userInfos?.objectForKey("name") as NSString
         println(userName)
-        var request = NSMutableURLRequest(URL: NSURL(string: "http://54.77.86.119:8080/users/\(userName)/history"))
+        var request = NSMutableURLRequest(URL: NSURL(string: "http://54.77.86.119:8080/users/\(userName)/history")!)
        
         request.HTTPMethod = "POST"
         

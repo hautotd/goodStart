@@ -44,9 +44,9 @@ class ViewController: UIViewController {
         let del = UIApplication.sharedApplication().delegate as AppDelegate
         println("current prenom")
         println(del.surname)
-        var birdTexture1 = UIImage(named: "connect.png") as UIImage
-        connectionButton.setBackgroundImage(birdTexture1, forState: .Normal)
-        // Do any additional setup after loading the view, typically from a nib.
+//        var birdTexture1 = UIImage(named: "connect.png") as UIImage
+//        connectionButton.setBackgroundImage(birdTexture1, forState: .Normal)
+//        // Do any additional setup after loading the view, typically from a nib.
         goToFirstView()
         
     }

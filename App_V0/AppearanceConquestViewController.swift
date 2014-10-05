@@ -42,18 +42,18 @@ class AppearanceConquestViewController: UIViewController , UIPickerViewDelegate,
         appDelegate.newConquestObject.printNewConquest()
     }
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView!) -> Int
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int
     {
         return 1
     }
     
-    func pickerView(pickerView: UIPickerView!, numberOfRowsInComponent component: Int) -> Int
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
     {
         return nationalityData!.count
     }
  
     
-      func pickerView(pickerView: UIPickerView!, viewForRow row: Int, forComponent component: Int, reusingView view: UIView!) -> UIView! {
+      func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView) -> UIView {
         var label:UILabel = UILabel()
      //   label.backgroundColor = UIColor.whiteColor()
         label.textColor = UIColor.whiteColor()
@@ -68,7 +68,7 @@ class AppearanceConquestViewController: UIViewController , UIPickerViewDelegate,
        // appDelegate.newConquestObject.nationality = nationalityData![row] as NSString
     }
     
-    func pickerView(pickerView: UIPickerView!, rowHeightForComponent component: Int) -> CGFloat {
+    func pickerView(pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
         return 40
     }
 

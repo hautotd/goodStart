@@ -46,6 +46,7 @@
 		7B7527AB19B657260096E7ED /* JobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7527AA19B657260096E7ED /* JobsViewController.swift */; };
 		7B9BB3DA19BB26AA0085C380 /* LeftToRightSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9BB3D919BB26AA0085C380 /* LeftToRightSegue.swift */; };
 		7B9BB3DE19BB31210085C380 /* Bauhaus 93 in Resources */ = {isa = PBXBuildFile; fileRef = 7B9BB3DD19BB31210085C380 /* Bauhaus 93 */; };
+		7BDDDB7B19E0300800773D85 /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDDDB7A19E0300800773D85 /* AddFriendViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		7B7527AA19B657260096E7ED /* JobsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobsViewController.swift; sourceTree = "<group>"; };
 		7B9BB3D919BB26AA0085C380 /* LeftToRightSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftToRightSegue.swift; sourceTree = "<group>"; };
 		7B9BB3DD19BB31210085C380 /* Bauhaus 93 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Bauhaus 93"; sourceTree = "<group>"; };
+		7BDDDB7A19E0300800773D85 /* AddFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 				7B7527A419B6387A0096E7ED /* SubscribeViewController.swift */,
 				7B7527AA19B657260096E7ED /* JobsViewController.swift */,
 				7B9BB3D919BB26AA0085C380 /* LeftToRightSegue.swift */,
+				7BDDDB7A19E0300800773D85 /* AddFriendViewController.swift */,
 			);
 			path = App_V0;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				4181634719A9207600287289 /* AppDelegate.swift in Sources */,
 				4181637E19AA406E00287289 /* newConquestViewController.swift in Sources */,
 				4181637619AA2F8D00287289 /* ConnectedViewController.swift in Sources */,
+				7BDDDB7B19E0300800773D85 /* AddFriendViewController.swift in Sources */,
 				7B08CC5B19B1FD6B00EAE1B9 /* AppearanceConquestViewController.swift in Sources */,
 				7B7527AB19B657260096E7ED /* JobsViewController.swift in Sources */,
 				7B7527A919B654250096E7ED /* UIColorExt.swift in Sources */,

@@ -19,7 +19,8 @@ class ConnectedViewController: UIViewController, UITableViewDelegate, UITableVie
     var tableData: [NSString] = []
     
     override func viewDidLoad() {
-        self.historyTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        //var cell = UINib(nibName: "MyCell", bundle: nil)
+        //self.historyTable.registerNib(cell!, forCellReuseIdentifier: "cell")
         super.viewDidLoad()
         
         /////////// REFRESHING CONTROL ////////////////////
@@ -38,25 +39,25 @@ class ConnectedViewController: UIViewController, UITableViewDelegate, UITableVie
         self.getDataSpinner.stopAnimating()
     }
     
-    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return self.tableData.count;
     }
     
-    func tableView(tableView: UITableView!,
-        cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell!
+    func tableView(tableView: UITableView,
+        cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         //let cell:UITableViewCell = UITableViewCell(style:UITableViewCellStyle.Default, reuseIdentifier:"cell")
         var cell = tableView.dequeueReusableCellWithIdentifier("cell") as? UITableViewCell
         if !(cell != nil) {
             cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "cell")
         }
-        cell!.textLabel.text = tableData[indexPath.row]
-        cell!.textLabel.textColor = UIColor.whiteColor()
+        cell!.textLabel?.text = tableData[indexPath.row]
+        cell!.textLabel?.textColor = UIColor.whiteColor()
         cell!.backgroundColor = UIColor.clearColor()
-        cell!.textLabel.numberOfLines = 4;
+        cell!.textLabel?.numberOfLines = 4;
         //cell.textLabel.lineBreakMode = NSLineBreakMode;
-        return cell
+        return cell!
     }
     
     func configureDisconnectButton(){
@@ -79,8 +80,9 @@ class ConnectedViewController: UIViewController, UITableViewDelegate, UITableVie
     func getHistory(){
         let userInfos: NSDictionary? = NSUserDefaults.standardUserDefaults().objectForKey("userInfos") as NSDictionary?
         let userName: NSString = userInfos?.objectForKey("name") as NSString
+        let pwd: NSString = userInfos?.objectForKey("password") as NSString
         
-        var request = NSMutableURLRequest(URL: NSURL(string: "http://54.77.86.119:8080/users/\(userName)"))
+        var request = NSMutableURLRequest(URL: NSURL(string: "http://54.77.86.119:8080/users/\(userName)/\(pwd)")!)
         //var session = NSURLSession()
         request.HTTPMethod = "GET"
         
@@ -103,7 +105,7 @@ class ConnectedViewController: UIViewController, UITableViewDelegate, UITableVie
             println("Data: \(data)")
             
             let dataParsed = NSData(bytes: data.bytes, length: Int(data.length))
-            let str:String = NSString(data: dataParsed, encoding: NSUTF8StringEncoding)
+            let str:String = NSString(data: dataParsed, encoding: NSUTF8StringEncoding)!
             
             if(str=="{}"){
                 dispatch_async(dispatch_get_main_queue(), {
@@ -133,6 +135,7 @@ class ConnectedViewController: UIViewController, UITableViewDelegate, UITableVie
                     var descriptor: NSSortDescriptor = NSSortDescriptor(key: "date", ascending: false)
                     var sortedResults: NSArray = history.sortedArrayUsingDescriptors([descriptor])
                     println(history)
+                    self.tableData = []
                     for historyElement in sortedResults{
                         println("history element")
                         var historyzero = historyElement as NSDictionary

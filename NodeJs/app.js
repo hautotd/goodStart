@@ -6,7 +6,8 @@ var fs = require('fs');
 var mongoose = require('mongoose');
 var agent = require('./agent/_header');
 
-mongoose.connect('mongodb://localhost/users');
+//mongoose.connect('mongodb://localhost/users');
+mongoose.connect('mongodb:http://54.77.86.119:27017/users');
 
 server.listen(8080);
 

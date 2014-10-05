@@ -36,7 +36,7 @@ class SubscribeViewController: UIViewController, UITextFieldDelegate {
             return
         }
         println("Creation user")
-        var request = NSMutableURLRequest(URL: NSURL(string: "http://54.77.86.119:8080/users"))
+        var request = NSMutableURLRequest(URL: NSURL(string: "http://54.77.86.119:8080/users")!)
         var session = NSURLSession()
         request.HTTPMethod = "POST"
         
@@ -48,7 +48,7 @@ class SubscribeViewController: UIViewController, UITextFieldDelegate {
         println(deviceTokenTmp)
         
         
-        var params = ["name":self.userNameInput.text, "email":self.userEmailInput.text, "password":self.passwordInput.text, "userID": deviceTokenTmp] as Dictionary<String,NSObject>
+        var params = ["name":self.userNameInput.text, "email":self.userEmailInput.text, "password":self.passwordInput.text, "userID": deviceTokenTmp, "history": [], "friends": []] as Dictionary<String,NSObject>
         println(params)
         var err: NSError?
         request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)

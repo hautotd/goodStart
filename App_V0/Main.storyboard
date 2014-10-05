@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="14A329r" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="14A379b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -70,7 +71,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <outlet property="delegate" destination="vbl-E0-ks9" id="6si-DI-u3t"/>
+                                    <outlet property="delegate" destination="vbl-E0-ks9" id="oni-p5-uY1"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="be2-ik-BaQ">
@@ -84,7 +85,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <connections>
-                                    <outlet property="delegate" destination="vbl-E0-ks9" id="IHq-wv-Vmq"/>
+                                    <outlet property="delegate" destination="vbl-E0-ks9" id="d3u-3s-e1O"/>
                                 </connections>
                             </textField>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="NbZ-qW-19L">
@@ -123,10 +124,7 @@
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4">
-                        <size key="portraitSize" width="320" height="568"/>
-                        <size key="landscapeSize" width="568" height="320"/>
-                    </simulatedScreenMetrics>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="connectionSpinner" destination="NbZ-qW-19L" id="2SF-gr-jcw"/>
                         <outlet property="connectionView" destination="IBr-sB-JxZ" id="aEd-Of-FGp"/>
@@ -197,10 +195,7 @@
                         <color key="backgroundColor" red="0.1450358259" green="0.7001140844" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4">
-                        <size key="portraitSize" width="320" height="568"/>
-                        <size key="landscapeSize" width="568" height="320"/>
-                    </simulatedScreenMetrics>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="passwordInput" destination="0C5-vq-k8b" id="g2b-fq-fRn"/>
                         <outlet property="userEmailInput" destination="JXD-Ky-qPv" id="Ehg-iB-hOa"/>
@@ -250,6 +245,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="GYB-Fh-4A8" kind="show" id="06s-HN-DW7"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wGt-2g-yCv">
                                 <rect key="frame" x="265" y="15" width="55" height="30"/>
@@ -298,10 +296,7 @@
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4">
-                        <size key="portraitSize" width="320" height="568"/>
-                        <size key="landscapeSize" width="568" height="320"/>
-                    </simulatedScreenMetrics>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="disconnectButton" destination="wGt-2g-yCv" id="Wkz-f3-yMG"/>
                         <outlet property="getDataSpinner" destination="sSR-kc-UV5" id="wZo-kG-51w"/>
@@ -312,6 +307,72 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ck8-UQ-06L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1573" y="136"/>
+        </scene>
+        <!--Add Friend View Controller-->
+        <scene sceneID="Lwg-w1-CYM">
+            <objects>
+                <viewController id="GYB-Fh-4A8" customClass="AddFriendViewController" customModule="App_V0" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jr3-2D-eSh"/>
+                        <viewControllerLayoutGuide type="bottom" id="9Td-x4-cRS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="l0T-Oq-iVI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Friend" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6g-po-yKH">
+                                <rect key="frame" x="21" y="52" width="283" height="40"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="33"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="UserName" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AUs-A5-16L">
+                                <rect key="frame" x="16" y="225" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="GYB-Fh-4A8" id="EDi-Nm-RV4"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lfm-wU-jpu">
+                                <rect key="frame" x="16" y="296" width="159" height="59"/>
+                                <color key="backgroundColor" red="0.1450358259" green="0.7001140844" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <state key="normal" title="CANCEL">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendConquestAction:" destination="gtg-X4-Se2" eventType="touchUpInside" id="ufN-08-M4U"/>
+                                    <segue destination="PfI-tB-fnq" kind="show" id="QES-ex-KHi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJ5-qt-gL0">
+                                <rect key="frame" x="205" y="296" width="99" height="59"/>
+                                <color key="backgroundColor" red="0.1450358259" green="0.7001140844" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <state key="normal" title="ADD">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="checkAndAddFriend:" destination="GYB-Fh-4A8" eventType="touchUpInside" id="Nhj-Xb-Sgv"/>
+                                    <action selector="sendConquestAction:" destination="gtg-X4-Se2" eventType="touchUpInside" id="n5I-8S-Du3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.98039215690000003" green="0.59607843140000005" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="checkAndAddFriendButton" destination="eJ5-qt-gL0" id="pbI-v8-mLO"/>
+                        <outlet property="userNamInput" destination="AUs-A5-16L" id="Qul-s0-wnh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="krP-c6-rIz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1573" y="892"/>
         </scene>
         <!--New Conquest View Controller-->
         <scene sceneID="AEK-te-oY7">
@@ -332,11 +393,11 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="PfI-tB-fnq" kind="show" id="Aeg-55-Pkg"/>
+                                    <segue destination="PfI-tB-fnq" kind="show" id="8tx-O8-uV0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lvE-E6-Lrg">
-                                <rect key="frame" x="108" y="110" width="104" height="116"/>
+                                <rect key="frame" x="108" y="94" width="104" height="132"/>
                                 <state key="normal" backgroundImage="manLogo.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -346,7 +407,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1fU-3V-OVo">
-                                <rect key="frame" x="103" y="246" width="114" height="119"/>
+                                <rect key="frame" x="103" y="228" width="114" height="137"/>
                                 <state key="normal" backgroundImage="womanLogo.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -355,8 +416,14 @@
                                     <segue destination="tqf-NR-dF1" kind="show" id="3EE-MB-R5v"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gender" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3G-Y3-J65">
+                                <rect key="frame" x="16" y="33" width="283" height="40"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="33"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZC1-9g-VCn">
-                                <rect key="frame" x="100" y="391" width="121" height="126"/>
+                                <rect key="frame" x="100" y="389" width="121" height="109"/>
                                 <color key="backgroundColor" red="0.14503582588414493" green="0.70011408436376155" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" backgroundImage="unknownLogo.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -366,22 +433,13 @@
                                     <segue destination="tqf-NR-dF1" kind="show" id="OgN-ta-IlG"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gender" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3G-Y3-J65">
-                                <rect key="frame" x="16" y="33" width="283" height="40"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="33"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.98039215690000003" green="0.59607843140000005" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.98039215690000003" green="0.59607843140000005" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4">
-                        <size key="portraitSize" width="320" height="568"/>
-                        <size key="landscapeSize" width="568" height="320"/>
-                    </simulatedScreenMetrics>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="manSexButton" destination="lvE-E6-Lrg" id="egx-CE-2UZ"/>
                         <outlet property="womanSexButton" destination="1fU-3V-OVo" id="94K-xw-tQR"/>
@@ -476,10 +534,7 @@
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4">
-                        <size key="portraitSize" width="320" height="568"/>
-                        <size key="landscapeSize" width="568" height="320"/>
-                    </simulatedScreenMetrics>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="commentTextView" destination="Qwt-XT-QIy" id="IGN-lz-SD6"/>
                         <outlet property="rankingLabel" destination="hsA-Q3-6eA" id="gBb-Qu-pHU"/>
@@ -582,10 +637,7 @@
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4">
-                        <size key="portraitSize" width="320" height="568"/>
-                        <size key="landscapeSize" width="568" height="320"/>
-                    </simulatedScreenMetrics>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="heightSegment" destination="u6o-l5-7kH" id="1Pf-0r-deg"/>
                         <outlet property="nationalityPicker" destination="oAy-tD-gMb" id="E5g-q0-EmZ"/>
@@ -659,10 +711,7 @@
                         <color key="tintColor" red="0.98039215690000003" green="0.59607843140000005" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4">
-                        <size key="portraitSize" width="320" height="568"/>
-                        <size key="landscapeSize" width="568" height="320"/>
-                    </simulatedScreenMetrics>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="TVX-zB-fU6" id="EMP-nx-EwK"/>
                         <outlet property="whereTableView" destination="MCG-ze-ovk" id="Okc-nE-dvG"/>
@@ -720,10 +769,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="SbX-eX-2ag"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4">
-                        <size key="portraitSize" width="320" height="568"/>
-                        <size key="landscapeSize" width="568" height="320"/>
-                    </simulatedScreenMetrics>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="jobsTableView" destination="24a-Mc-dgq" id="m0y-m0-fv2"/>
                         <segue destination="gtg-X4-Se2" kind="modal" identifier="goToFriends" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="7ad-Gv-FN8"/>
@@ -786,10 +832,7 @@
                         </connections>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4">
-                        <size key="portraitSize" width="320" height="568"/>
-                        <size key="landscapeSize" width="568" height="320"/>
-                    </simulatedScreenMetrics>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="friendsTableView" destination="WOJ-Yw-hnA" id="S5W-TL-SIW"/>
                         <outlet property="sendConquest" destination="lRb-Fp-fNB" id="Gzj-7M-aTT"/>
@@ -812,13 +855,13 @@
         <image name="womanLogo.png" width="294" height="298"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hOh-aY-Dgu"/>
-        <segue reference="ml5-pM-FRm"/>
-        <segue reference="Q0V-jK-eAR"/>
-        <segue reference="7yn-2f-HWi"/>
-        <segue reference="Vi2-tt-WlV"/>
-        <segue reference="jT3-qG-EHe"/>
         <segue reference="rY8-X1-Eaz"/>
+        <segue reference="QES-ex-KHi"/>
+        <segue reference="hOh-aY-Dgu"/>
+        <segue reference="OgN-ta-IlG"/>
+        <segue reference="Vi2-tt-WlV"/>
+        <segue reference="7yn-2f-HWi"/>
+        <segue reference="e08-gI-5KN"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" red="0.1450358259" green="0.7001140844" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

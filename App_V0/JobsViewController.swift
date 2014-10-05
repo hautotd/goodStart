@@ -25,32 +25,34 @@ class JobsViewController: UIViewController, UITableViewDelegate, UITableViewData
         jobsTableView.addGestureRecognizer(swipeBack)
         jobsTableView.userInteractionEnabled = true
         
-        self.jobsTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        //self.jobsTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.automaticallyAdjustsScrollViewInsets = false;
         self.jobsTableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
         
     }
     
-    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
     
-    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        var cell: UITableViewCell = self.jobsTableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
-        
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCellWithIdentifier("cell") as? UITableViewCell
+        if !(cell != nil) {
+            cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "cell")
+        }
         //        var imageName = UIImage(named: picturesArray[indexPath.row])
         //        cell.imageView.autoresizesSubviews = false
         //        cell.contentMode = UIViewContentMode.Center
         //        cell.imageView.image = imageName
         //        cell.shouldIndentWhileEditing = false
-        cell.textLabel.textAlignment = NSTextAlignment.Center
-        cell.backgroundColor = UIColor(rgb: 0xf89854)
-        cell.textLabel.textColor = UIColor.whiteColor()
-        cell.textLabel.font = UIFont(name: "Arial", size: 40 )
-        cell.textLabel.text = items[indexPath.row].uppercaseString
+        cell!.textLabel?.textAlignment = NSTextAlignment.Center
+        cell!.backgroundColor = UIColor(rgb: 0xf89854)
+        cell!.textLabel?.textColor = UIColor.whiteColor()
+        cell!.textLabel?.font = UIFont(name: "Arial", size: 40 )
+        cell!.textLabel?.text = items[indexPath.row].uppercaseString
         
-        return cell
+        return cell!
     }
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
